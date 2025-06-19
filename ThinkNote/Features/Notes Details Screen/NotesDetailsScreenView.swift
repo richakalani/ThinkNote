@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct NotesDetailsScreenView: View {
+    @StateObject var notesDetailsScreenViewModel = NotesDetailsScreenViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            TextField(text: $notesDetailsScreenViewModel.descriptionTitle) {
+                
+                
+            }
+        }
     }
 }
 

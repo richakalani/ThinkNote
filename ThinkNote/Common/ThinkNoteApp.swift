@@ -13,7 +13,7 @@ struct ThinkNoteApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeScreenView()
+            LoginView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
