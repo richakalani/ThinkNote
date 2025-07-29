@@ -52,7 +52,7 @@ struct LoginView: View {
                                         switch route {
                                         case .homeScreenView: HomeScreenView(navigationPath: $navigationPath)
                                         case .loginView: LoginView()
-                                        case .detailView: NotesDetailsScreenView()
+                                        case .detailView: NotesDetailsScreenView(navigationPath: $navigationPath)
                                         }
                                         
                                     })

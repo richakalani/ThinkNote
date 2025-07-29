@@ -21,15 +21,8 @@ struct HomeScreenView: View {
                             .font(.system(size: 50, weight: .medium, design: .serif))
                             .frame(maxWidth: .infinity)
                         ZStack {
-                           
-                            List {
-                                NoteView(title: "test - 1", subTitle: "lkdfkjojdfodsdofodmfoemdjkfisjdifsjifjsijf")
-                                NoteView(title: "test - 2", subTitle: "lkdfkjojdfodsdofodmfoemdjkfisjdifsjifjsijf")
-                                NoteView(title: "test - 3", subTitle: "lkdfkjojdfodsdofodmfoemdjkfisjdifsjifjsijf")
-                                NoteView(title: "test - 4", subTitle: "lkdfkjojdfodsdofodmfoemdjkfisjdifsjifjsijf")
-                                NoteView(title: "test - 5", subTitle: "lkdfkjojdfodsdofodmfoemdjkfisjdifsjifjsijf")
-                                NoteView(title: "test - 6", subTitle: "lkdfkjojdfodsdofodmfoemdjkfisjdifsjifjsijf")
-                                NoteView(title: "test - 7", subTitle: "lkdfkjojdfodsdofodmfoemdjkfisjdifsjifjsijf")
+                            List(homeScreenViewModel.allNotes, id: \.self) { data in
+                                NoteView(title: data.title ?? "", subTitle: data.description ?? "")
                             }
                             .listRowSeparator(.hidden)
                             .listStyle(.plain)
@@ -37,7 +30,7 @@ struct HomeScreenView: View {
                             .scrollIndicators(.hidden)
                             .overlay(alignment: .bottomTrailing, content: {
                                 Button {
-                                    
+                                    navigationPath.append(.detailView)
                                 } label: {
                                     Image(systemName: "plus")
                                         .font(.title.weight(.regular))
@@ -56,7 +49,7 @@ struct HomeScreenView: View {
                             .cornerRadius(16)
                             .shadow(radius: 4)
                             .padding()
-                            .frame( height: UIScreen.main.bounds.height * 0.7, alignment: .center)
+                            .frame(height: UIScreen.main.bounds.height * 0.7, alignment: .center)
                  
                     })
                 })
